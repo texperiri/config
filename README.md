@@ -41,7 +41,7 @@ If you want to contribute configurations to this repository please open a Pull R
 
 ## Meters
 
-- [Discovergy Metering Service (Cloud)](#meter-discovergy-metering-service-cloud)
+- [Discovergy Metering Service (Grid Meter)](#meter-discovergy-metering-service-grid-meter)
 - [E3DC (Battery Meter)](#meter-e3dc-battery-meter)
 - [E3DC (Grid Meter)](#meter-e3dc-grid-meter)
 - [E3DC (PV Meter)](#meter-e3dc-pv-meter)
@@ -61,13 +61,13 @@ If you want to contribute configurations to this repository please open a Pull R
 - [Multiple PV inverters combined (PV Meter)](#meter-multiple-pv-inverters-combined-pv-meter)
 - [PowerDog (Grid Meter)](#meter-powerdog-grid-meter)
 - [PowerDog (PV Meter)](#meter-powerdog-pv-meter)
-- [Powerfox Poweropti (Cloud)](#meter-powerfox-poweropti-cloud)
-- [RCT Power Storage (Battery)](#meter-rct-power-storage-battery)
-- [RCT Power Storage (Grid)](#meter-rct-power-storage-grid)
-- [RCT Power Storage (PV)](#meter-rct-power-storage-pv)
-- [SENEC.Home (Battery)](#meter-senec-home-battery)
-- [SENEC.Home (Grid)](#meter-senec-home-grid)
-- [SENEC.Home (PV)](#meter-senec-home-pv)
+- [Powerfox Poweropti (Grid Meter)](#meter-powerfox-poweropti-grid-meter)
+- [RCT Power Storage (Battery Meter)](#meter-rct-power-storage-battery-meter)
+- [RCT Power Storage (Grid Meter)](#meter-rct-power-storage-grid-meter)
+- [RCT Power Storage (PV Meter)](#meter-rct-power-storage-pv-meter)
+- [SENEC.Home (Battery Meter)](#meter-senec-home-battery-meter)
+- [SENEC.Home (Grid Meter)](#meter-senec-home-grid-meter)
+- [SENEC.Home (PV Meter)](#meter-senec-home-pv-meter)
 - [Shelly 3EM (HTTP)](#meter-shelly-3em-http)
 - [SMA Sunny Home Manager / Energy Meter (Speedwire)](#meter-sma-sunny-home-manager--energy-meter-speedwire)
 - [SMA Sunny Island / Sunny Boy Storage (Battery Meter)](#meter-sma-sunny-island--sunny-boy-storage-battery-meter)
@@ -120,8 +120,8 @@ If you want to contribute configurations to this repository please open a Pull R
 ### Meters
 
 
-<a id="meter-discovergy-metering-service-cloud"></a>
-#### Discovergy Metering Service (Cloud)
+<a id="meter-discovergy-metering-service-grid-meter"></a>
+#### Discovergy Metering Service (Grid Meter)
 
 ```yaml
 - type: discovergy
@@ -137,7 +137,7 @@ If you want to contribute configurations to this repository please open a Pull R
 - type: custom
   power:
     source: modbus
-    uri: e3dc.fritz.box:502
+    uri: 192.0.2.2:502
     id: 1 # ModBus slave id
     register: # manual register configuration for E3/DC "Simple-Mode"
       address: 40069 # Batterie-Leistung in Watt
@@ -146,7 +146,7 @@ If you want to contribute configurations to this repository please open a Pull R
     scale: -1 # reverse direction
   soc:
     source: modbus
-    uri: e3dc.fritz.box:502
+    uri: 192.0.2.2:502
     id: 1 # ModBus slave id
     register: # manual register configuration for E3/DC "Simple-Mode"
       address: 40082 # Batterie-SOC in Prozent
@@ -161,7 +161,7 @@ If you want to contribute configurations to this repository please open a Pull R
 - type: custom
   power:
     source: modbus
-    uri: e3dc.fritz.box:502
+    uri: 192.0.2.2:502
     id: 1 # ModBus slave id
     register: # manual register configuration for E3/DC "Simple-Mode"
       address: 40073 # Hausverbrauchs-Leistung in Watt
@@ -176,7 +176,7 @@ If you want to contribute configurations to this repository please open a Pull R
 - type: custom
   power:
     source: modbus
-    uri: e3dc.fritz.box:502
+    uri: 192.0.2.2:502
     id: 1 # ModBus slave id
     register: # manual register configuration for E3/DC "Simple-Mode"
       address: 40067 # Photovoltaikleistung in Watt
@@ -413,7 +413,7 @@ If you want to contribute configurations to this repository please open a Pull R
     source: calc #calculate current overall consumption + (current pv effort * (-1) )
     add:
       - source: modbus
-        uri: 192.168.1.2:502 #ip-adress and port (default-port: 502)
+        uri: 192.0.2.2:502 #ip-adress and port (default-port: 502)
         id: 1
         register:
           address: 40026 #register for overall consumption
@@ -421,7 +421,7 @@ If you want to contribute configurations to this repository please open a Pull R
           decode: int32
   
       - source: modbus
-        uri: 192.168.1.2:502 #ip-adress and port (default-port: 502)
+        uri: 192.0.2.2:502 #ip-adress and port (default-port: 502)
         id: 1
         register:
           address: 40002 #register for pv effort
@@ -437,7 +437,7 @@ If you want to contribute configurations to this repository please open a Pull R
 - type: custom
   power:
     type: modbus
-    uri: 192.168.1.2:502 #ip-adress and port (default-port: 502)
+    uri: 192.0.2.2:502 #ip-adress and port (default-port: 502)
     id: 1
     register:
       address: 40002 #register for pv effort
@@ -445,8 +445,8 @@ If you want to contribute configurations to this repository please open a Pull R
       decode: int32
 ```
 
-<a id="meter-powerfox-poweropti-cloud"></a>
-#### Powerfox Poweropti (Cloud)
+<a id="meter-powerfox-poweropti-grid-meter"></a>
+#### Powerfox Poweropti (Grid Meter)
 
 ```yaml
 - type: custom
@@ -460,8 +460,8 @@ If you want to contribute configurations to this repository please open a Pull R
     jq: .Watt
 ```
 
-<a id="meter-rct-power-storage-battery"></a>
-#### RCT Power Storage (Battery)
+<a id="meter-rct-power-storage-battery-meter"></a>
+#### RCT Power Storage (Battery Meter)
 
 ```yaml
 - type: custom
@@ -475,8 +475,8 @@ If you want to contribute configurations to this repository please open a Pull R
     timeout: 5s
 ```
 
-<a id="meter-rct-power-storage-grid"></a>
-#### RCT Power Storage (Grid)
+<a id="meter-rct-power-storage-grid-meter"></a>
+#### RCT Power Storage (Grid Meter)
 
 ```yaml
 - type: custom
@@ -486,8 +486,8 @@ If you want to contribute configurations to this repository please open a Pull R
     timeout: 5s
 ```
 
-<a id="meter-rct-power-storage-pv"></a>
-#### RCT Power Storage (PV)
+<a id="meter-rct-power-storage-pv-meter"></a>
+#### RCT Power Storage (PV Meter)
 
 ```yaml
 - type: custom
@@ -497,8 +497,8 @@ If you want to contribute configurations to this repository please open a Pull R
     timeout: 5s
 ```
 
-<a id="meter-senec-home-battery"></a>
-#### SENEC.Home (Battery)
+<a id="meter-senec-home-battery-meter"></a>
+#### SENEC.Home (Battery Meter)
 
 ```yaml
 - type: custom
@@ -515,8 +515,8 @@ If you want to contribute configurations to this repository please open a Pull R
     timeout: 5s
 ```
 
-<a id="meter-senec-home-grid"></a>
-#### SENEC.Home (Grid)
+<a id="meter-senec-home-grid-meter"></a>
+#### SENEC.Home (Grid Meter)
 
 ```yaml
 - type: custom
@@ -527,8 +527,8 @@ If you want to contribute configurations to this repository please open a Pull R
     scale: -1
 ```
 
-<a id="meter-senec-home-pv"></a>
-#### SENEC.Home (PV)
+<a id="meter-senec-home-pv-meter"></a>
+#### SENEC.Home (PV Meter)
 
 ```yaml
 - type: custom
@@ -841,7 +841,7 @@ If you want to contribute configurations to this repository please open a Pull R
 - type: custom
   power: # power reading
     source: http # use http plugin
-    uri: http://demo.volkszaehler.org/api/data/<uuid>.json?from=now
+    uri: http://192.0.2.2/api/data/<uuid>.json?from=now
     jq: .data.tuples[0][1] # parse response json
 ```
 
@@ -867,10 +867,10 @@ If you want to contribute configurations to this repository please open a Pull R
     source: calc # use calc plugin
     add:
     - source: http # import channel
-      uri: http://demo.volkszaehler.org/api/data/<import-uuid>.json?from=now
+      uri: http://192.0.2.2/api/data/<import-uuid>.json?from=now
       jq: .data.tuples[0][1] # parse response json
     - source: http # export channel
-      uri: http://demo.volkszaehler.org/api/data/<export-uuid>.json?from=now
+      uri: http://192.0.2.2/api/data/<export-uuid>.json?from=now
       jq: .data.tuples[0][1] # parse response json
       scale: -1 # export must result in negative values
 ```
@@ -1064,7 +1064,7 @@ If you want to contribute configurations to this repository please open a Pull R
 
 ```yaml
 - type: phoenix-em-eth
-  uri: 192.168.0.8:502
+  uri: 192.0.2.2:502
   meter: # only if a charge meter is connected to the controller
     power: true
     energy: true
@@ -1076,7 +1076,7 @@ If you want to contribute configurations to this repository please open a Pull R
 
 ```yaml
 - type: phoenix-ev-eth
-  uri: 192.168.0.8:502
+  uri: 192.0.2.2:502
   meter: # only if a charge meter is connected to the controller
     power: true
     energy: true
@@ -1099,7 +1099,7 @@ If you want to contribute configurations to this repository please open a Pull R
 
 ```yaml
 - type: shelly
-  uri: http://192.168.xxx.xxx  # shelly device ip address (local)
+  uri: http://192.0.2.2  # shelly device ip address (local)
   channel: 0  # shelly device relay channel 
   standbypower: 15  # treat as charging above this power
 ```
@@ -1109,7 +1109,7 @@ If you want to contribute configurations to this repository please open a Pull R
 
 ```yaml
 - type: tasmota
-  uri: http://192.168.xxx.xxx # tasmota device ip address (local)
+  uri: http://192.0.2.2 # tasmota device ip address (local)
   # user: xxxx # user, (optional) in case user + password are defined
   # password: xxxxx #  (optional) in case user + password are defined
   standbypower: 15 # treat as charging above this power
@@ -1140,7 +1140,7 @@ If you want to contribute configurations to this repository please open a Pull R
 
 ```yaml
 - type: wallbe
-  uri: 192.168.0.8:502 # TCP ModBus address
+  uri: 192.0.2.2:502 # TCP ModBus address
   legacy: true # set only for older Wallbe devices (pre ~2019, old controller firmware)  
   meter: # only if a charge meter is connected to the controller
     power: true

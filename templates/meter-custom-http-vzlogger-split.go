@@ -13,10 +13,10 @@ func init() {
   source: calc # use calc plugin
   add:
   - source: http # import channel
-    uri: http://demo.volkszaehler.org/api/data/<import-uuid>.json?from=now
+    uri: http://192.0.2.2/api/data/<import-uuid>.json?from=now
     jq: .data.tuples[0][1] # parse response json
   - source: http # export channel
-    uri: http://demo.volkszaehler.org/api/data/<export-uuid>.json?from=now
+    uri: http://192.0.2.2/api/data/<export-uuid>.json?from=now
     jq: .data.tuples[0][1] # parse response json
     scale: -1 # export must result in negative values`,
 	}

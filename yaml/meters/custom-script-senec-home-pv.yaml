@@ -1,5 +1,5 @@
 type: custom
-name: SENEC.Home (PV)
+name: SENEC.Home (PV Meter)
 sample: |
   power:
     source: script

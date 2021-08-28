@@ -8,7 +8,7 @@ func init() {
 	template := registry.Template{
 		Class:  "meter",
 		Type:   "custom",
-		Name:   "RCT Power Storage (Battery)",
+		Name:   "RCT Power Storage (Battery Meter)",
 		Sample: `power:
   source: script
   cmd: /bin/bash -c "rctclient read-value --host 192.0.2.2 --name g_sync.p_acc_lp"

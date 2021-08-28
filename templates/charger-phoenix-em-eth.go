@@ -9,7 +9,7 @@ func init() {
 		Class:  "charger",
 		Type:   "phoenix-em-eth",
 		Name:   "Phoenix EM-CP-PP-ETH Controller (Modbus TCP)",
-		Sample: `uri: 192.168.0.8:502
+		Sample: `uri: 192.0.2.2:502
 meter: # only if a charge meter is connected to the controller
   power: true
   energy: true

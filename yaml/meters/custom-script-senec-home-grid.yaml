@@ -1,5 +1,5 @@
 type: custom
-name: SENEC.Home (Grid)
+name: SENEC.Home (Grid Meter)
 sample: |
   power:
     cmd: >

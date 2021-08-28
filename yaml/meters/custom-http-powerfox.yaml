@@ -1,5 +1,5 @@
 type: custom
-name: Powerfox Poweropti (Cloud)
+name: Powerfox Poweropti (Grid Meter)
 sample: |
   power:
     source: http

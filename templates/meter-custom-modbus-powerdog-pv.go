@@ -11,7 +11,7 @@ func init() {
 		Name:   "PowerDog (PV Meter)",
 		Sample: `power:
   type: modbus
-  uri: 192.168.1.2:502 #ip-adress and port (default-port: 502)
+  uri: 192.0.2.2:502 #ip-adress and port (default-port: 502)
   id: 1
   register:
     address: 40002 #register for pv effort

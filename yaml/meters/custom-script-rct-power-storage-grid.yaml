@@ -1,5 +1,5 @@
 type: custom
-name: RCT Power Storage (Grid)
+name: RCT Power Storage (Grid Meter)
 sample: |
   power:
     source: script

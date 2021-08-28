@@ -8,7 +8,7 @@ func init() {
 	template := registry.Template{
 		Class:  "meter",
 		Type:   "custom",
-		Name:   "Powerfox Poweropti (Cloud)",
+		Name:   "Powerfox Poweropti (Grid Meter)",
 		Sample: `power:
   source: http
   uri: https://backend.powerfox.energy/api/2.0/my/main/current

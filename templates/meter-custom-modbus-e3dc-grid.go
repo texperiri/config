@@ -11,7 +11,7 @@ func init() {
 		Name:   "E3DC (Grid Meter)",
 		Sample: `power:
   source: modbus
-  uri: e3dc.fritz.box:502
+  uri: 192.0.2.2:502
   id: 1 # ModBus slave id
   register: # manual register configuration for E3/DC "Simple-Mode"
     address: 40073 # Hausverbrauchs-Leistung in Watt

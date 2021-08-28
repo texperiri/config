@@ -8,7 +8,7 @@ func init() {
 	template := registry.Template{
 		Class:  "meter",
 		Type:   "custom",
-		Name:   "SENEC.Home (PV)",
+		Name:   "SENEC.Home (PV Meter)",
 		Sample: `power:
   source: script
   cmd: >

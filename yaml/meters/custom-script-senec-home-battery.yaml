@@ -1,5 +1,5 @@
 type: custom
-name: SENEC.Home (Battery)
+name: SENEC.Home (Battery Meter)
 sample: |
   power:
     source: script

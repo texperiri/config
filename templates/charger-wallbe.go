@@ -9,7 +9,7 @@ func init() {
 		Class:  "charger",
 		Type:   "wallbe",
 		Name:   "Wallbe (Eco, Pro)",
-		Sample: `uri: 192.168.0.8:502 # TCP ModBus address
+		Sample: `uri: 192.0.2.2:502 # TCP ModBus address
 legacy: true # set only for older Wallbe devices (pre ~2019, old controller firmware)  
 meter: # only if a charge meter is connected to the controller
   power: true

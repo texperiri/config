@@ -1,5 +1,5 @@
 type: custom
-name: RCT Power Storage (PV)
+name: RCT Power Storage (PV Meter)
 sample: |
   power:
     source: script
