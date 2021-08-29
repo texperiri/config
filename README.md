@@ -59,6 +59,7 @@ If you want to contribute configurations to this repository please open a Pull R
 - [Kostal Smart Energy Meter (Grid Meter)](#meter-kostal-smart-energy-meter-grid-meter)
 - [Multiple DC MPP strings combined (PV Meter)](#meter-multiple-dc-mpp-strings-combined-pv-meter)
 - [Multiple PV inverters combined (PV Meter)](#meter-multiple-pv-inverters-combined-pv-meter)
+- [Multiple SMA Speedwire PV inverters combined (PV Meter)](#meter-multiple-sma-speedwire-pv-inverters-combined-pv-meter)
 - [PowerDog (Grid Meter)](#meter-powerdog-grid-meter)
 - [PowerDog (PV Meter)](#meter-powerdog-pv-meter)
 - [Powerfox Poweropti (Cloud)](#meter-powerfox-poweropti-cloud)
@@ -69,9 +70,8 @@ If you want to contribute configurations to this repository please open a Pull R
 - [SENEC.Home (Grid)](#meter-senec-home-grid)
 - [SENEC.Home (PV)](#meter-senec-home-pv)
 - [Shelly 3EM (HTTP)](#meter-shelly-3em-http)
-- [SMA Sunny Home Manager / Energy Meter (Speedwire)](#meter-sma-sunny-home-manager--energy-meter-speedwire)
-- [SMA Sunny Island / Sunny Boy Storage (Battery Meter)](#meter-sma-sunny-island--sunny-boy-storage-battery-meter)
-- [SMA SunnyBoy / TriPower / other PV-inverter (PV Meter)](#meter-sma-sunnyboy--tripower--other-pv-inverter-pv-meter)
+- [SMA Speedwire Inverter (PV or Battery Meter)](#meter-sma-speedwire-inverter-pv-or-battery-meter)
+- [SMA Sunny Home Manager 2.0 / Energy Meter (Grid, PV or Battery Meter)](#meter-sma-sunny-home-manager-2-0--energy-meter-grid-pv-or-battery-meter)
 - [SolarEdge Energy Meter via inverter (Grid Meter)](#meter-solaredge-energy-meter-via-inverter-grid-meter)
 - [SolarEdge Hybrid Inverter (PV Meter)](#meter-solaredge-hybrid-inverter-pv-meter)
 - [SolarEdge StorEdge (Battery Meter)](#meter-solaredge-storedge-battery-meter)
@@ -404,6 +404,24 @@ If you want to contribute configurations to this repository please open a Pull R
       id: 1
 ```
 
+<a id="meter-multiple-sma-speedwire-pv-inverters-combined-pv-meter"></a>
+#### Multiple SMA Speedwire PV inverters combined (PV Meter)
+
+```yaml
+- type: custom
+  power:
+    source: calc
+    add:
+    - source: sma
+      uri: 192.0.2.2
+      password: # optional
+      value: ActivePowerPlus
+    - source: sma
+      uri: 192.0.2.3
+      password: # optional
+      value: ActivePowerPlus
+```
+
 <a id="meter-powerdog-grid-meter"></a>
 #### PowerDog (Grid Meter)
 
@@ -565,33 +583,21 @@ If you want to contribute configurations to this repository please open a Pull R
     jq: .current
 ```
 
-<a id="meter-sma-sunny-home-manager--energy-meter-speedwire"></a>
-#### SMA Sunny Home Manager / Energy Meter (Speedwire)
+<a id="meter-sma-speedwire-inverter-pv-or-battery-meter"></a>
+#### SMA Speedwire Inverter (PV or Battery Meter)
 
 ```yaml
 - type: sma
   uri: 192.0.2.2
+  password: # optional
 ```
 
-<a id="meter-sma-sunny-island--sunny-boy-storage-battery-meter"></a>
-#### SMA Sunny Island / Sunny Boy Storage (Battery Meter)
+<a id="meter-sma-sunny-home-manager-2-0--energy-meter-grid-pv-or-battery-meter"></a>
+#### SMA Sunny Home Manager 2.0 / Energy Meter (Grid, PV or Battery Meter)
 
 ```yaml
-- type: modbus
-  model: sunspec
-  uri: 192.0.2.2:502
-  id: 126 # sma default sunspec modbus id
-  soc: ChargeState
-```
-
-<a id="meter-sma-sunnyboy--tripower--other-pv-inverter-pv-meter"></a>
-#### SMA SunnyBoy / TriPower / other PV-inverter (PV Meter)
-
-```yaml
-- type: modbus
-  model: sunspec
-  uri: 192.0.2.2:502
-  id: 126 # sma default sunspec modbus id
+- type: sma
+  uri: 192.0.2.2
 ```
 
 <a id="meter-solaredge-energy-meter-via-inverter-grid-meter"></a>

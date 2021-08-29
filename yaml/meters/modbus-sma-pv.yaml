@@ -1,6 +1,0 @@
-type: modbus
-name: SMA SunnyBoy / TriPower / other PV-inverter (PV Meter)
-sample: |
-  model: sunspec
-  uri: 192.0.2.2:502
-  id: 126 # sma default sunspec modbus id
