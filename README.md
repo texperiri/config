@@ -57,6 +57,9 @@ If you want to contribute configurations to this repository please open a Pull R
 - [Kostal Hybrid Inverter (Battery Meter)](#meter-kostal-hybrid-inverter-battery-meter)
 - [Kostal Inverter (PV Meter)](#meter-kostal-inverter-pv-meter)
 - [Kostal Smart Energy Meter (Grid Meter)](#meter-kostal-smart-energy-meter-grid-meter)
+- [LG ESS HOME 8/10 (Battery Meter)](#meter-lg-ess-home-8-10-battery-meter)
+- [LG ESS HOME 8/10 (Grid Meter)](#meter-lg-ess-home-8-10-grid-meter)
+- [LG ESS HOME 8/10 (PV Meter)](#meter-lg-ess-home-8-10-pv-meter)
 - [Multiple DC MPP strings combined (PV Meter)](#meter-multiple-dc-mpp-strings-combined-pv-meter)
 - [Multiple PV inverters combined (PV Meter)](#meter-multiple-pv-inverters-combined-pv-meter)
 - [PowerDog (Grid Meter)](#meter-powerdog-grid-meter)
@@ -364,6 +367,39 @@ If you want to contribute configurations to this repository please open a Pull R
   model: sunspec
   uri: 192.0.2.2:502
   id: 71 # kostal default sunspec modbus id
+```
+
+<a id="meter-lg-ess-home-8-10-battery-meter"></a>
+#### LG ESS HOME 8/10 (Battery Meter)
+
+```yaml
+- type: lgess
+  usage: battery
+  # uri and password are only required once if multiple lgess usages are defined
+  uri: https://192.0.2.2/ # URI of the LG ESS HOME inverter
+  password: "DE200..." # registration number of the LG ESS HOME inverter
+```
+
+<a id="meter-lg-ess-home-8-10-grid-meter"></a>
+#### LG ESS HOME 8/10 (Grid Meter)
+
+```yaml
+- type: lgess
+  usage: grid
+  # uri and password are only required once if multiple lgess usages are defined
+  uri: https://192.0.2.2/
+  password: "DE200..." # registration number of the LG ESS HOME inverter
+```
+
+<a id="meter-lg-ess-home-8-10-pv-meter"></a>
+#### LG ESS HOME 8/10 (PV Meter)
+
+```yaml
+- type: lgess
+  usage: pv
+  # uri and password are only required once if multiple lgess usages are defined
+  uri: https://192.0.2.2/
+  password: "DE200..." # registration number of the LG ESS HOME inverter
 ```
 
 <a id="meter-multiple-dc-mpp-strings-combined-pv-meter"></a>
