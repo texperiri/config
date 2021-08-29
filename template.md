@@ -5,7 +5,7 @@
 Configuration examples for the [EVCC EV Charge Controller](https://github.com/andig/evcc).
 
 [EVCC](https://github.com/andig/evcc) supports a growing list of [chargers](#chargers), [meters](#meters) and [vehicles](#vehicles). See below for detailed configuration.
-Additional devices can be configured using the `generic` device type and related [plugins](#https://github.com/andig/evcc#plugins).
+Additional devices can be configured using `custom` devices and related [plugins](#https://github.com/andig/evcc#plugins).
 
 ## Contributing
 
