@@ -56,6 +56,8 @@ If you want to contribute configurations to this repository please open a Pull R
 - [Kostal Energy Meter via inverter (Grid Meter)](#meter-kostal-energy-meter-via-inverter-grid-meter)
 - [Kostal Hybrid Inverter (Battery Meter)](#meter-kostal-hybrid-inverter-battery-meter)
 - [Kostal Inverter (PV Meter)](#meter-kostal-inverter-pv-meter)
+- [Kostal Piko + Piko BA (Grid Meter)](#meter-kostal-piko--piko-ba-grid-meter)
+- [Kostal Piko + Piko BA (PV Meter)](#meter-kostal-piko--piko-ba-pv-meter)
 - [Kostal Smart Energy Meter (Grid Meter)](#meter-kostal-smart-energy-meter-grid-meter)
 - [Multiple DC MPP strings combined (PV Meter)](#meter-multiple-dc-mpp-strings-combined-pv-meter)
 - [Multiple PV inverters combined (PV Meter)](#meter-multiple-pv-inverters-combined-pv-meter)
@@ -354,6 +356,37 @@ If you want to contribute configurations to this repository please open a Pull R
   model: sunspec
   uri: 192.0.2.2:1502
   id: 71 # kostal default sunspec modbus id
+```
+
+<a id="meter-kostal-piko--piko-ba-grid-meter"></a>
+#### Kostal Piko + Piko BA (Grid Meter)
+
+```yaml
+- type: custom
+  power:
+    source: calc
+    add:
+    - source: http
+      uri: http://192.0.2.2/api/dxs.json?dxsEntries=67109120 # PV AC Ausgang
+      jq: .dxsEntries[0].value
+      scale: -1.0
+    - source: http
+      uri: http://192.0.2.2/api/dxs.json?dxsEntries=83886848 # Netzbezug
+      jq: .dxsEntries[0].value
+    - source: http
+      uri: http://192.0.2.2/api/dxs.json?dxsEntries=83886336 # PV Eigenverbrauch
+      jq: .dxsEntries[0].value
+```
+
+<a id="meter-kostal-piko--piko-ba-pv-meter"></a>
+#### Kostal Piko + Piko BA (PV Meter)
+
+```yaml
+- type: custom
+  power:
+    source: http
+    uri: http://192.0.2.2/api/dxs.json?dxsEntries=67109120 # PV AC Ausgang
+    jq: .dxsEntries[0].value
 ```
 
 <a id="meter-kostal-smart-energy-meter-grid-meter"></a>
